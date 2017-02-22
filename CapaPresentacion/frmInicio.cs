@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class frmInicio : Form
     {
-        public Form1()
+        public frmInicio()
         {
             InitializeComponent();
+        }
+
+        private void btnPedidosCliente_Click(object sender, EventArgs e)
+        {
+            frmPedidosCliente pedidosCliente = new frmPedidosCliente();
+            pedidosCliente.Show();
         }
     }
 }
