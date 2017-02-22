@@ -26,5 +26,10 @@ namespace CapaNegocio
         {
             return _datos.DevolverDatosDePedido(numPedido);
         }
+        
+        public List<Producto> DevolverTopVentas(int cantidad)
+        {
+            return _datos.DevolverTopVentas(cantidad);
+        }
     }
 }

@@ -16,6 +16,8 @@ namespace CapaDatos
         private EmpleadoTableAdapter daEmpleado;
         private ProductoTableAdapter daProducto;
         private DetallesPedidoTableAdapter daDetalles;
+        private CategoriaTableAdapter daCategoria;
+        private ProveedorTableAdapter daProveedor;
 
         public Datos()
         {
@@ -40,6 +42,12 @@ namespace CapaDatos
 
             daDetalles = new DsAlmacenTableAdapters.DetallesPedidoTableAdapter();
             daDetalles.Fill(dsAlmacen.DetallesPedido);
+
+            daCategoria = new DsAlmacenTableAdapters.CategoriaTableAdapter();
+            daCategoria.Fill(dsAlmacen.Categoria);
+
+            daProveedor = new DsAlmacenTableAdapters.ProveedorTableAdapter();
+            daProveedor.Fill(dsAlmacen.Proveedor);
         }
         public List<Cliente> DevolverClientes()
         {
@@ -66,6 +74,17 @@ namespace CapaDatos
                                   daDetalles.PedidoRow.EmpleadoRow.Nombre,daDetalles.IdProducto, daDetalles.ProductoRow.NombreProducto,
                                   daDetalles.PrecioUnidad, daDetalles.Cantidad, daDetalles.Descuento);
             return productosPedido.ToList(); ;
+        }
+
+        public List<Producto> DevolverTopVentas(int cantidad)
+        {
+            var topProductos = from daProducto in dsAlmacen.Producto
+                               where daProducto.Suspendido == false
+                               orderby daProducto.GetDetallesPedidoRows().Count() descending, daProducto.UnidadesEnExistencia descending                         
+                               select new Producto(daProducto.Id, daProducto.NombreProducto, daProducto.IdProveedor, daProducto.ProveedorRow.NombreCompañia,
+                               daProducto.IdCategoria, daProducto.CategoriaRow.NombreCategoria, daProducto.PrecioUnidad, daProducto.UnidadesEnExistencia, 
+                               daProducto.Suspendido, daProducto.GetDetallesPedidoRows().Count());
+            return topProductos.Take(cantidad).ToList();
         }
     }
 }

@@ -31,13 +31,13 @@
             this.btnPedidosCliente = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTopVentas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPedidosCliente
             // 
             this.btnPedidosCliente.Font = new System.Drawing.Font("Rockwell", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPedidosCliente.Location = new System.Drawing.Point(103, 143);
+            this.btnPedidosCliente.Location = new System.Drawing.Point(111, 143);
             this.btnPedidosCliente.Name = "btnPedidosCliente";
             this.btnPedidosCliente.Size = new System.Drawing.Size(194, 128);
             this.btnPedidosCliente.TabIndex = 0;
@@ -58,7 +58,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Rockwell", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(425, 143);
+            this.button1.Location = new System.Drawing.Point(422, 143);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 128);
             this.button1.TabIndex = 2;
@@ -66,22 +66,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnTopVentas
             // 
-            this.button2.Font = new System.Drawing.Font("Rockwell", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(252, 330);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(194, 128);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "btn3";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTopVentas.Font = new System.Drawing.Font("Rockwell", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTopVentas.Location = new System.Drawing.Point(263, 317);
+            this.btnTopVentas.Name = "btnTopVentas";
+            this.btnTopVentas.Size = new System.Drawing.Size(194, 128);
+            this.btnTopVentas.TabIndex = 3;
+            this.btnTopVentas.Text = "Top Ventas";
+            this.btnTopVentas.UseVisualStyleBackColor = true;
+            this.btnTopVentas.Click += new System.EventHandler(this.btnTopVentas_Click);
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 512);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(719, 512);
+            this.Controls.Add(this.btnTopVentas);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnPedidosCliente);
@@ -97,7 +98,7 @@
         private System.Windows.Forms.Button btnPedidosCliente;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTopVentas;
     }
 }
 

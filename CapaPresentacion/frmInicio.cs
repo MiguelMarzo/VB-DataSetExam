@@ -28,5 +28,11 @@ namespace CapaPresentacion
             frmDatosDeUnPedido datosPedido = new frmDatosDeUnPedido();
             datosPedido.Show();
         }
+
+        private void btnTopVentas_Click(object sender, EventArgs e)
+        {
+            frmTopVentas topVentas = new frmTopVentas();
+            topVentas.Show();
+        }
     }
 }
