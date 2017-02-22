@@ -14,6 +14,8 @@ namespace CapaDatos
         private ClienteTableAdapter daCliente;
         private PedidoTableAdapter daPedido;
         private EmpleadoTableAdapter daEmpleado;
+        private ProductoTableAdapter daProducto;
+        private DetallesPedidoTableAdapter daDetalles;
 
         public Datos()
         {
@@ -32,6 +34,12 @@ namespace CapaDatos
 
             daEmpleado = new DsAlmacenTableAdapters.EmpleadoTableAdapter();
             daEmpleado.Fill(dsAlmacen.Empleado);
+
+            daProducto = new DsAlmacenTableAdapters.ProductoTableAdapter();
+            daProducto.Fill(dsAlmacen.Producto);
+
+            daDetalles = new DsAlmacenTableAdapters.DetallesPedidoTableAdapter();
+            daDetalles.Fill(dsAlmacen.DetallesPedido);
         }
         public List<Cliente> DevolverClientes()
         {
@@ -48,6 +56,16 @@ namespace CapaDatos
                                  select new Pedido(daPedido.NumPedido, daPedido.IdCliente, daPedido.IdEmpleado, daPedido.EmpleadoRow.Nombre,
                                                     daPedido.FechaPedido, daPedido.FechaEntrega);
             return pedidosCliente.ToList();
+        }
+
+        public List<DetallesPedido> DevolverDatosDePedido(int numeroPedido)
+        {
+            var productosPedido = from daDetalles in dsAlmacen.DetallesPedido
+                                  where daDetalles.NumPedido == numeroPedido
+                                  select new DetallesPedido(daDetalles.IdProducto,daDetalles.PedidoRow.ClienteRow.NombreCompañia,
+                                  daDetalles.PedidoRow.EmpleadoRow.Nombre,daDetalles.IdProducto, daDetalles.ProductoRow.NombreProducto,
+                                  daDetalles.PrecioUnidad, daDetalles.Cantidad, daDetalles.Descuento);
+            return productosPedido.ToList(); ;
         }
     }
 }

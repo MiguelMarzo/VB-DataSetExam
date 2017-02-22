@@ -22,5 +22,11 @@ namespace CapaPresentacion
             frmPedidosCliente pedidosCliente = new frmPedidosCliente();
             pedidosCliente.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmDatosDeUnPedido datosPedido = new frmDatosDeUnPedido();
+            datosPedido.Show();
+        }
     }
 }

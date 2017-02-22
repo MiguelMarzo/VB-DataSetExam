@@ -36,7 +36,6 @@ namespace CapaPresentacion
                 MessageBox.Show("El cliente " + clienteSeleccionado.nombreCompañia + " no tiene pedidos");
                 return;
             }
-            dgvPedidosCliente.DataSource = pedidos;
             dgvPedidosCliente.DataSource = pedidos.Select(o => new
             { Pedido = o.numPedido, Empleado = o.nombreEmpleado, Fecha_Pedido = o.fechaPedido, Fecha_Entrega = o.fechaEntrega }).ToList();
 

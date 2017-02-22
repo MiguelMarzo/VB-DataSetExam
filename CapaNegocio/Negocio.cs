@@ -21,5 +21,10 @@ namespace CapaNegocio
         {
             return _datos.DevolverPedidosPorCliente(idCliente);
         }
+
+        public List<DetallesPedido> DevolverDatosDePedido(int numPedido)
+        {
+            return _datos.DevolverDatosDePedido(numPedido);
+        }
     }
 }
